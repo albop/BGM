@@ -45,8 +45,8 @@ calibration:
         # parameters:
 
         K: (1/beta/(1-delta)-1) * (1/xi)
-        xi: 0.2
-        theta: 1+1/xi
+        xi: 1/(theta-1)
+        theta: 3.8 # 1+1/xi
         beta: 0.99
         delta: 0.025
         rhoZ: 0.95
