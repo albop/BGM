@@ -4,9 +4,14 @@ symbols:
 
     states: [Z, N]
     controls: [C, Welf]
-    auxiliaries: [mu, rho, epsilon, Welf_C]
     shocks: [e_Z]
     parameters: [theta, xi, beta, delta, po, alpha, rhoZ, Z_ss, Nbar, K]
+
+definitions:
+    mu: 1 + 1/alpha/N
+    rho: exp( - 1/alpha/N/2 )
+    epsilon: (mu-1)/2
+    Welf_C: exp(Welf*(1-beta))
 
 
 equations:
@@ -15,12 +20,6 @@ equations:
 
         - Z = exp( rhoZ * log(Z(-1)) + e_Z )
         - N = (1-delta) * ( N(-1) + Z - C(-1) / rho(-1) )
-
-    auxiliary:
-        - mu = 1 + 1/alpha/N
-        - rho = exp( - 1/alpha/N/2 )
-        - epsilon = (mu-1)/2
-        - Welf_C = exp(Welf*(1-beta))
 
     arbitrage:
         - C^(-1) * rho = beta * (1-delta)  * (C(+1)^(-1)) * ( rho(1) + C(1)/N(1)*( (epsilon(1))*po + (1-po) * (mu(1)-1) ) ) * (po + (1-po)*mu(1)/mu)
@@ -61,13 +60,13 @@ calibration:
         rhoZ: 0.95
         Z_ss: 1
 
-covariances:
-
-        [[0.0072^2]]
 
 options:
 
-    approximation_space:
+    distribution: !Normal
+        sigma: [[0.0072^2]]
+
+    grid: !Cartesian
         a: [Z*0.95, 1]
         b: [Z*1.05, 5]
         orders: [10,10]

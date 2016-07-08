@@ -1,13 +1,19 @@
 name: Competitive Equilibrium
 
+model_type: dtcscc
+
 symbols:
 
     states: [Z, N]
     controls: [C, Welf]
-    auxiliaries: [mu, rho, epsilon]
     shocks: [e_Z]
     parameters: [theta, xi, xi_theta, beta, delta, po,  rhoZ, Z_ss, K]
 
+
+definitions:
+    mu: theta / (theta-1)
+    rho: N^(xi)
+    epsilon: xi
 
 equations:
 
@@ -16,10 +22,7 @@ equations:
         - Z = exp( rhoZ * log(Z(-1)) + e_Z )
         - N = (1-delta) * ( N(-1) + Z - C(-1) / rho(-1) )
 
-    auxiliary:
-        - mu = theta / (theta-1)
-        - rho = N^(xi)
-        - epsilon = xi
+
 
     arbitrage:
         - C^(-1) * rho = beta * (1-delta)  * (C(+1)^(-1)) * ( rho(1) + C(1)/N(1)*( (epsilon(1))*po + (1-po) * (mu(1)-1) ) ) * (po + (1-po)*mu(1)/mu)
@@ -52,13 +55,14 @@ calibration:
         rhoZ: 0.95
         Z_ss: 1
 
-covariances:
-
-        [[0.0072^2]]
 
 options:
 
-    approximation_space:
+    grid: !Cartesian
         a: [Z*0.95, N*0.8]
         b: [Z*1.05, N*1.2]
         orders: [10,10]
+
+    distribution: !Normal
+
+        sigma: [[0.0072^2]]
