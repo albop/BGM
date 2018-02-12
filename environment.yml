@@ -1,0 +1,13 @@
+name: BGM_replication
+channels:
+- conda-forge
+dependencies:
+    - python
+    - numpy
+    - matplotlib
+    - pandas
+    - slycot
+    - dolang
+    - pip
+    - pip:
+        - git+https://github.com/econforge/dolo.git@5f6d4c1ec0a651293d3751807d13e7b54fd5285b
