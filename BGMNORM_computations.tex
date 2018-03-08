@@ -1,0 +1,329 @@
+%2multibyte Version: 5.50.0.2953 CodePage: 1252
+
+\documentclass{article}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%TCIDATA{OutputFilter=LATEX.DLL}
+%TCIDATA{Version=5.50.0.2953}
+%TCIDATA{Codepage=1252}
+%TCIDATA{<META NAME="SaveForMode" CONTENT="1">}
+%TCIDATA{BibliographyScheme=Manual}
+%TCIDATA{Created=Monday, February 12, 2018 15:29:24}
+%TCIDATA{LastRevised=Monday, February 12, 2018 16:58:55}
+%TCIDATA{<META NAME="GraphicsSave" CONTENT="32">}
+%TCIDATA{<META NAME="DocumentShell" CONTENT="Standard LaTeX\Blank - Standard LaTeX Article">}
+%TCIDATA{CSTFile=40 LaTeX article.cst}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{acknowledgement}[theorem]{Acknowledgement}
+\newtheorem{algorithm}[theorem]{Algorithm}
+\newtheorem{axiom}[theorem]{Axiom}
+\newtheorem{case}[theorem]{Case}
+\newtheorem{claim}[theorem]{Claim}
+\newtheorem{conclusion}[theorem]{Conclusion}
+\newtheorem{condition}[theorem]{Condition}
+\newtheorem{conjecture}[theorem]{Conjecture}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{criterion}[theorem]{Criterion}
+\newtheorem{definition}[theorem]{Definition}
+\newtheorem{example}[theorem]{Example}
+\newtheorem{exercise}[theorem]{Exercise}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{notation}[theorem]{Notation}
+\newtheorem{problem}[theorem]{Problem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{remark}[theorem]{Remark}
+\newtheorem{solution}[theorem]{Solution}
+\newtheorem{summary}[theorem]{Summary}
+\newenvironment{proof}[1][Proof]{\noindent\textbf{#1.} }{\ \rule{0.5em}{0.5em}}
+\input{tcilatex}
+
+\begin{document}
+
+
+\section{Baseline case(s): Inelastic labor, no physical capital, General
+preferences}
+
+The codes produced by Pablo Winant deal with this.
+
+The idea is to solve the model (including welfare) in Bilbiie, Ghironi and
+Melitz under two scenarios:
+
+1. Market Equilibrium ---abbreviated ME
+
+2. Pareto Optimum (Planner) --- abbreviated PO
+
+3. Compute the consumption-equivalent welfare difference between the two
+
+For the simplest version, the model is described by two equations. The
+endogenous variables are N (number of firms, a state variable) and C (total
+consumption); Z is exogenous prouctivity, L is fixed labor supply.
+
+The first equation is common to both equilibria:%
+\begin{equation}
+N_{t+1}=\left( 1-\delta \right) \left( N_{t}+\frac{Z_{t}L}{f_{E}}-\frac{C_{t}%
+}{f_{E}\rho \left( N_{t}\right) }\right) .  \label{Neq}
+\end{equation}
+
+The second equation is, for the market equilibrium ME%
+\begin{equation}
+f_{E}\rho \left( N_{t}\right) =\beta \left( 1-\delta \right) E_{t}\left\{ 
+\frac{\left( C_{t+1}\right) ^{-\gamma }}{\left( C_{t}\right) ^{-\gamma }}%
+\left[ f_{E}\rho \left( N_{t+1}\right) \frac{\mu \left( N_{t}\right) }{\mu
+\left( N_{t+1}\right) }+\frac{C_{t+1}}{N_{t+1}}\mu \left( N_{t}\right)
+\left( 1-\frac{1}{\mu \left( N_{t+1}\right) }\right) \right] \right\} .
+\label{eulerCE}
+\end{equation}
+
+while for the planner, PO it is instead%
+\begin{equation}
+f_{E}\rho \left( N_{t}\right) =\beta \left( 1-\delta \right) E_{t}\left\{ 
+\frac{\left( C_{t+1}\right) ^{-\gamma }}{\left( C_{t}\right) ^{-\gamma }}%
+\left[ f_{E}\rho \left( N_{t+1}\right) +\frac{C_{t+1}}{N_{t+1}}\epsilon
+\left( N_{t+1}\right) \right] \right\} .  \label{EulerPlanner}
+\end{equation}
+
+Where $\rho \left( N_{t+1}\right) ,$ $\mu \left( N_{t}\right) $ and $%
+\epsilon \left( N_{t+1}\right) $ are preference-specific functions, defined
+in the following Table:
+
+\begin{tabular}{llll}
+\multicolumn{4}{l}{\textbf{Table 1.} Four Preference Specifications: Markup,
+relative price and benefit of variety} \\ 
+\multicolumn{4}{l}{} \\ \hline\hline
+C.E.S.-D.S. & General C.E.S. & Translog & Exponential \\ \hline
+$\mu \left( N_{t}\right) =\mu =\frac{\theta }{\theta -1}$ & $\mu \left(
+N_{t}\right) =\mu =\frac{\theta }{\theta -1}$ & $\mu \left( N_{t}\right) =%
+\frac{\theta \left( N_{t}\right) }{\theta \left( N_{t}\right) -1}=1+\frac{1}{%
+\sigma N_{t}}$ & $\mu \left( N_{t}\right) =\frac{\theta \left( N_{t}\right) 
+}{\theta \left( N_{t}\right) -1}=1+\frac{1}{\alpha N_{t}}$ \\ \hline
+$\rho \left( N_{t}\right) =N_{t}^{\frac{1}{\theta -1}}$ & $\rho \left(
+N_{t}\right) =N_{t}^{\xi }$ & $\rho \left( N_{t}\right) =e^{-\frac{1}{2}%
+\frac{\tilde{N}-N_{t}}{\sigma \tilde{N}N_{t}}}$ \ \  & $\rho \left(
+N_{t}\right) =e^{-\frac{1}{\alpha N_{t}}}$ \\ \hline
+$\epsilon \left( N_{t}\right) =\mu -1$ & $\epsilon \left( N_{t}\right) =\xi $
+& $\epsilon \left( N_{t}\right) =\frac{1}{2\sigma N_{t}}=\frac{\mu \left(
+N_{t}\right) -1}{2}$ & $\epsilon \left( N_{t}\right) =\frac{1}{\alpha N_{t}}%
+=\mu \left( N_{t}\right) -1$ \\ \hline
+\end{tabular}
+
+Important points:
+
+1. The code computes the welfare differential for the last three
+preferences, and plots it as a function of one parameter: $\xi ,\sigma $ and 
+$\alpha $ respectively. Notice: CES-DS is a special case nested in general
+CES with $\xi =\frac{1}{\theta -1};$ for CES-DS the welfare differential is
+zero (it is the minimum of the parabola in the first panel of the figure).
+
+2. When comparing welfare across ME and PO, it is essential to make sure
+that the \textbf{initial condition} (for the state variable N) is the same
+for both equilibria; of course, the steady-state for the two equilibria is
+different -- so the steady-state value of that particular equilibrium should
+NOT be used as an initial value.
+
+The steady state can be computed analytically and this can be useful for the
+code. Consumption in SS is given, for a given SS N (to be solved below) by 
+\[
+C=\rho \left( N\right) \left( ZL-f_{E}\frac{\delta }{1-\delta }N\right) 
+\]
+
+Where N is calculated as follows. For the ME, it is a solution to%
+\[
+N^{ME}=\frac{ZL\left( 1-\delta \right) }{f_{E}\left( \frac{\beta
+^{-1}-1+\delta }{\mu \left( N^{NE}\right) -1}+\delta \right) }
+\]%
+while for the PO%
+\[
+N^{PO}=\frac{ZL\left( 1-\delta \right) }{f_{E}\left( \frac{\beta
+^{-1}-1+\delta }{\epsilon \left( N^{PO}\right) }+\delta \right) }
+\]
+
+To obtain the closed-form solution, we need to specify the preference
+scheme, for example for general CES%
+\begin{eqnarray*}
+N_{CES}^{ME} &=&\frac{ZL\left( 1-\delta \right) }{f_{E}\left( \frac{\beta
+^{-1}-1+\delta }{\frac{1}{\theta -1}}+\delta \right) } \\
+N^{PO} &=&\frac{ZL\left( 1-\delta \right) }{f_{E}\left( \frac{\beta
+^{-1}-1+\delta }{\xi }+\delta \right) }
+\end{eqnarray*}%
+while for translog there is a quadratic equation.
+
+\section{New exercises}
+
+I need three extensions: The first two are for CES-DS preferences, the last
+one is for translog.
+
+\subsection{CES-DS and Endogenous labor}
+
+Same exercise, but there is one more variable $L_{t}$ hours worked; the
+equations determining equilibrium are as follows. The first two are common
+to ME and PO:
+
+\begin{equation}
+f_{E}N_{t}^{\mu -1}=\beta \left( 1-\delta \right) E_{t}\left\{ \frac{\left(
+C_{t+1}\right) ^{-\gamma }}{\left( C_{t}\right) ^{-\gamma }}\left[
+f_{E}N_{t+1}^{\mu -1}+\frac{C_{t+1}}{N_{t+1}}\left( \mu -1\right) \right]
+\right\} .
+\end{equation}
+
+\begin{equation}
+N_{t+1}=\left( 1-\delta \right) \left( N_{t}+\frac{Z_{t}L_{t}}{f_{E}}-\frac{%
+C_{t}}{f_{E}N_{t}^{\mu -1}}\right) .
+\end{equation}
+
+The last one is different, namely for ME:%
+\begin{equation}
+L_{t}^{\varphi }=\frac{1}{\mu }Z_{t}N_{t}^{\mu -1}\left( C_{t}\right)
+^{-\gamma }  \label{LS}
+\end{equation}%
+while for the planner PO:%
+\begin{equation}
+L_{t}^{\varphi }=Z_{t}N_{t}^{\mu -1}\left( C_{t}\right) ^{-\gamma }
+\label{plannerLS}
+\end{equation}%
+where I used the definition of net markup for CES-DS as a parameter 
+\[
+\allowbreak \mu -1=\frac{1}{\theta -1}
+\]
+
+I would like a Figure with two panels, plotting the welfare differential
+between PO and ME:
+
+1. as a function of $\varphi $ (from $0$ to 10) given $\theta
+=3.8\rightarrow \mu =1.357\,14$
+
+2. as a function of $\mu $ going from 1 to 2, given $\varphi =0.25$ 
+
+\subsection{CES-DS and Endogenous Investment in Physical Capital}
+
+Now we go back to exogenous labor L fixed but add physical capital and
+investment, so two new variables K and I. There is also a new definition
+manufacturing output Y$_{C}$. The equations are, first the ones common to
+both ME and PO (same definition of $\mu $ as above)
+
+\begin{eqnarray*}
+N_{t+1} &=&\left( 1-\delta \right) N_{t}+\left( 1-\delta \right) \frac{%
+\left( L-L_{C,t}\right) Z_{t}}{f_{E,t}} \\
+K_{t+1} &=&(1-\delta ^{K})K_{t}+I_{t} \\
+Y_{C,t} &=&C_{t}+I_{t} \\
+Y_{C,t} &=&Z_{t}N_{t}^{\mu -1}\left( L_{C,t}\right) ^{\alpha
+}K_{t}^{1-\alpha }
+\end{eqnarray*}%
+\[
+C_{t}^{-\gamma }\alpha \frac{Y_{C,t}}{L_{C,t}}\frac{f_{E,t}}{Z_{t}}=\beta
+\left( 1-\delta \right) E_{t}\left\{ C_{t+1}^{-\gamma }\left[ \alpha \frac{%
+Y_{C,t+1}}{L_{C,t+1}}\frac{f_{E,t+1}}{Z_{t+1}}+\left( \mu -1\right) \frac{%
+Y_{C,t+1}}{N_{t+1}}\right] \right\} 
+\]
+
+Only one equation different between the two, for the ME:%
+\[
+C_{t}^{-\gamma }=\beta E_{t}\left\{ C_{t+1}^{-\gamma }\left[ \frac{1}{\mu }%
+\left( 1-\alpha \right) \frac{Y_{C,t+1}}{K_{t+1}}+1-\delta ^{K}\right]
+\right\} 
+\]%
+and for the PO: 
+\[
+C_{t}^{-\gamma }=\beta E_{t}\left\{ C_{t+1}^{-\gamma }\left[ \left( 1-\alpha
+\right) \frac{Y_{C,t+1}}{K_{t+1}}+1-\delta ^{K}\right] \right\} 
+\]
+
+I would like a Figure with two panels, plotting the welfare differential
+between PO and ME:
+
+1. as a function of labor share $\alpha $ (from $0.3$ to 1) given $\theta
+=3.8\rightarrow \mu =1.357\,14$
+
+2. as a function of $\mu $ going from 1 to 2, given $\alpha =0.66$ 
+
+\subsubsection{Appendix: Steady state computation}
+
+The following SS equations (formalizing Z=f$_{E}$=1) are common to both
+equilibria:%
+\[
+\frac{L_{C}}{N}=\frac{\alpha }{\mu -1}\left( \beta ^{-1}\left( 1-\delta
+\right) ^{-1}-1\right) 
+\]%
+\begin{eqnarray*}
+N &=&\frac{L\left( 1-\delta \right) }{\delta +\frac{\alpha }{\mu -1}\left(
+\beta ^{-1}-\left( 1-\delta \right) \right) } \\
+&\rightarrow &L_{C}=\frac{\alpha }{\mu -1}\frac{\left( \beta ^{-1}-\left(
+1-\delta \right) \right) L}{\delta +\frac{\alpha }{\mu -1}\left( \beta
+^{-1}-\left( 1-\delta \right) \right) } \\
+\delta ^{K} &=&\frac{I}{K} \\
+\frac{Y_{C}}{K} &=&\frac{C}{K}+\delta ^{K} \\
+K^{\alpha } &=&\frac{N^{\mu -1}N^{\alpha }\left( \frac{L_{C}}{N}\right)
+^{\alpha }}{\frac{Y_{C}}{K}}
+\end{eqnarray*}
+
+For the market equilibrium ME, 
+
+\begin{eqnarray*}
+\frac{Y_{C}}{K} &=&\mu \frac{\beta ^{-1}-\left( 1-\delta ^{K}\right) }{%
+1-\alpha }\rightarrow  \\
+K^{ME} &=&\frac{N^{\frac{\mu -1}{\alpha }}L_{C}}{\left( \mu \frac{\beta
+^{-1}-\left( 1-\delta ^{K}\right) }{1-\alpha }\right) ^{\frac{1}{\alpha }}}
+\end{eqnarray*}
+
+For PO:
+
+\begin{eqnarray*}
+\frac{Y_{C}}{K} &=&\frac{\beta ^{-1}-\left( 1-\delta ^{K}\right) }{1-\alpha }
+\\
+K^{PO} &=&\frac{N^{\frac{\mu -1}{\alpha }}L_{C}}{\left( \frac{\beta
+^{-1}-\left( 1-\delta ^{K}\right) }{1-\alpha }\right) ^{\frac{1}{\alpha }}}
+\end{eqnarray*}
+
+\subsection{Translog + Elastic Labor + Endogenous Investment}
+
+The equations that are common across ME and PO:
+
+\begin{eqnarray*}
+N_{t+1} &=&\left( 1-\delta \right) N_{t}+\left( 1-\delta \right) \frac{%
+\left( L-L_{C,t}\right) Z_{t}}{f_{E,t}} \\
+K_{t+1} &=&(1-\delta ^{K})K_{t}+I_{t} \\
+Y_{C,t} &=&C_{t}+I_{t} \\
+Y_{C,t} &=&Z_{t}\rho \left( N_{t}\right) \left( L_{C,t}\right) ^{\alpha
+}K_{t}^{1-\alpha }
+\end{eqnarray*}
+
+Plus three equations specific to ME:%
+\[
+C_{t}^{-\gamma }\alpha \frac{Y_{C,t}}{L_{C,t}}\frac{f_{E,t}}{Z_{t}}=\beta
+\left( 1-\delta \right) E_{t}\left\{ C_{t+1}^{-\gamma }\left[ \alpha \frac{%
+Y_{C,t+1}}{L_{C,t+1}}\frac{f_{E,t+1}}{Z_{t+1}}\frac{\mu \left( N_{t}\right) 
+}{\mu \left( N_{t+1}\right) }+\mu \left( N_{t}\right) \left( 1-\frac{1}{\mu
+\left( N_{t+1}\right) }\right) \frac{Y_{C,t+1}}{N_{t+1}}\right] \right\} 
+\]%
+\[
+C_{t}^{-\gamma }=\beta E_{t}\left\{ C_{t+1}^{-\gamma }\left[ \frac{1}{\mu
+\left( N_{t+1}\right) }\left( 1-\alpha \right) \frac{Y_{C,t+1}}{K_{t+1}}%
++1-\delta ^{K}\right] \right\} 
+\]%
+\begin{equation}
+L_{t}^{\varphi }=\frac{1}{\mu \left( N_{t}\right) }\alpha \frac{Y_{C,t}}{%
+L_{C,t}}\left( C_{t}\right) ^{-\gamma }
+\end{equation}
+
+Or three equations specific to PO: 
+\[
+C_{t}^{-\gamma }\alpha \frac{Y_{C,t}}{L_{C,t}}\frac{f_{E,t}}{Z_{t}}=\beta
+\left( 1-\delta \right) E_{t}\left\{ C_{t+1}^{-\gamma }\left[ \alpha \frac{%
+Y_{C,t+1}}{L_{C,t+1}}\frac{f_{E,t+1}}{Z_{t+1}}+\epsilon \left(
+N_{t+1}\right) \frac{Y_{C,t+1}}{N_{t+1}}\right] \right\} 
+\]%
+\[
+C_{t}^{-\gamma }=\beta E_{t}\left\{ C_{t+1}^{-\gamma }\left[ \left( 1-\alpha
+\right) \frac{Y_{C,t+1}}{K_{t+1}}+1-\delta ^{K}\right] \right\} 
+\]%
+\begin{equation}
+L_{t}^{\varphi }=\alpha \frac{Y_{C,t}}{L_{C,t}}\left( C_{t}\right) ^{-\gamma
+}
+\end{equation}
+
+Where everything has been defined above in particular the functions $%
+\epsilon ,\rho ,\mu $ in the Table. 
+
+This is essentially taking the existing "translog" code and adding L, K, and
+I as done above for CES-DS.
+
+\end{document}

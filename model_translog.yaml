@@ -22,7 +22,7 @@ equations:
         - N = (1-delta) * ( N(-1) + Z - C(-1) / rho(-1) )
 
     arbitrage:
-        - C^(-1) * rho = beta * (1-delta)  * (C(+1)^(-1)) * ( rho(1) + C(1)/N(1)*( (epsilon(1))*po + (1-po) * (mu(1)-1) ) ) * (po + (1-po)*mu(1)/mu)
+        - C^(-1) * rho = beta * (1-delta)  * (C(+1)^(-1)) * ( rho(1) + C(1)/N(1)*( (epsilon(1))*po + (1-po) * (mu(1)-1) ) ) * (po + (1-po)*mu/mu(1))
         - Welf = log(C) + beta*Welf(+1)
 
 
