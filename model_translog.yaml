@@ -1,5 +1,7 @@
 name: Competitive Equilibrium
 
+model_type: dtcscc
+
 symbols:
 
     states: [Z, N]
